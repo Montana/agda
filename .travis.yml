@@ -1,8 +1,7 @@
-language: haskell
+language: generic
 
-before_install:
-  - cabal update
-  - cabal install Agda
+services:
+  - docker
 
 script:
-  - agda --verbose=1 --no-libraries --no-auto --safe append_vectors.agda
+  - docker run --rm -v $(pwd):/code -w /code agda/agda:2.6.2 agda --verbose=1 --no-libraries --no-auto --safe append_vectors.agda
