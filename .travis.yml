@@ -1,0 +1,8 @@
+language: haskell
+
+before_install:
+  - cabal update
+  - cabal install Agda
+
+script:
+  - agda --verbose=1 --no-libraries --no-auto --safe append_vectors.agda
