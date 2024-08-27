@@ -3,9 +3,12 @@ module VectorAppend where
 open import Agda.Builtin.Nat
 open import Agda.Builtin.Equality
 
+-- Define Vec as before
 data Vec (A : Set) : Nat → Set where
   []  : Vec A zero
   _∷_ : {n : Nat} → A → Vec A n → Vec A (suc n)
+
+infixr 20 _∷_
 
 vec1 : Vec Nat 2
 vec1 = 1 ∷ 2 ∷ []
