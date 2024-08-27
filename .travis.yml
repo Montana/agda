@@ -8,4 +8,4 @@ install:
   - stack install Agda
 
 script:
-  - ~/.local/bin/agda --verbose=1 --no-libraries --no-auto --safe VectorsAppend.agda
+  - ~/.local/bin/agda --verbose=1 --no-libraries --no-auto --safe VectorAppend.agda
