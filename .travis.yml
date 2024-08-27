@@ -1,7 +1,11 @@
-language: generic
+language: haskell
 
-services:
-  - docker
+before_install:
+  - curl -sSL https://get.haskellstack.org/ | sh
+
+install:
+  - stack setup
+  - stack install Agda
 
 script:
-  - docker run --rm -v $(pwd):/code -w /code agda/agda:2.6.2 agda --verbose=1 --no-libraries --no-auto --safe append_vectors.agda
+  - ~/.local/bin/agda --verbose=1 --no-libraries --no-auto --safe append_vectors.agda
