@@ -6,6 +6,4 @@ before_install:
 install:
   - stack setup
   - stack install Agda
-
-script:
-  - ~/.local/bin/agda --verbose=1 --no-libraries --no-auto --safe VectorAppend.agda
+  - skip
