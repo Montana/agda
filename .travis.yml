@@ -6,4 +6,3 @@ before_install:
 install:
   - stack setup
   - stack install Agda
-  - skip
