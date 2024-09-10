@@ -15,3 +15,5 @@ before_install:
 install:
   - stack --no-terminal --install-ghc setup
   - stack --no-terminal install Agda
+
+install: skip
