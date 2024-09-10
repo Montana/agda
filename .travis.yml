@@ -1,6 +1,5 @@
 language: haskell
-sudo: false
-dist: xenial
+dist: focal
 
 cache:
   directories:
@@ -13,7 +12,5 @@ before_install:
   - travis_retry curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
 
 install:
-  - stack --no-terminal --install-ghc setup
   - stack --no-terminal install Agda
-
-install: skip
+  - agda --version 
