@@ -1,8 +1,20 @@
 language: haskell
+sudo: false
+dist: xenial
+
+cache:
+  directories:
+  - $HOME/.stack
+  - $TRAVIS_BUILD_DIR/.stack-work
 
 before_install:
-  - curl -sSL https://get.haskellstack.org/ | sh
+  - mkdir -p ~/.local/bin
+  - export PATH=$HOME/.local/bin:$PATH
+  - travis_retry curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
 
 install:
-  - stack setup
-  - stack install Agda
+  - stack --no-terminal --install-ghc setup
+  - stack --no-terminal install Agda
+
+script:
+  - stack --no-terminal test
